@@ -59,8 +59,8 @@ function mostrarTareas() {
         btnEditar.textContent = "Editar";
         btnEditar.onclick = () => {
             let nuevo = prompt("Editar tarea:", tarea.nombre);
-            if (nuevo !== "") {
-                gestor.editarTarea(index, nuevo);
+            if (nuevo !== null && nuevo.trim() !== "") {
+                gestor.editarTarea(index, nuevo.trim());
                 mostrarTareas();
             }
         };
@@ -79,12 +79,12 @@ function mostrarTareas() {
 }
 
 boton.addEventListener("click", () => {
-    if (input.value === "") {
+    if (input.value.trim() === "") {
         error.textContent = "No puedes agregar una tarea vacía";
         return;
     }
 
-    gestor.agregarTarea(input.value);
+    gestor.agregarTarea(input.value.trim());
     input.value = "";
     error.textContent = "";
     mostrarTareas();

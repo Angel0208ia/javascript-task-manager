@@ -23,7 +23,7 @@ h1 {
 }
 
 .contenedor {
-    width: 420px;
+    width: min(420px, calc(100% - 32px));
     padding: 32px;
     border: 4px solid #000;
     text-align: center;
